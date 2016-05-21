@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<adaptation>
+    <compartment type="net.runtime.role.actor.Compartment" id="636718812" >
+        <rebind coreId="20132171" roleType="net.runtime.role.snake.Obstacle" >
+            <invoke method="defineObstacle" returnType="void"></invoke>
+            <!--&lt;!&ndash;<invoke method="clearAllObstacles" returnType="void"></invoke>&ndash;&gt;-->
+        </rebind>
+        <!--<rebind coreId="20132171" roleType="net.runtime.role.snake.MovingFood" />-->
+        <!--<unbind coreId="1880587981" roleType="net.runtime.role.snake.MovingFood" />-->
+        <!--<rebind coreId="1878246837" roleType="net.runtime.role.snake.PassingWall" />-->
+        <!--<unbind coreId="1950409828" roleType="net.runtime.role.snake.PassingWall" />-->
+    </compartment>
+</adaptation>

@@ -3,7 +3,9 @@ LyRT Role Runtime with support of Transaction is an extended work from original 
 - Runtime architecture that supports Unanticipated Adaptation
 - Consistency of adaptation by means of **Transaction**
 
-### Runtime Archiecture for Unanticipated Adaptation
+### Runtime Architecture for Unanticipated Adaptation
+![Runtime Architecture](./runtime-architecture.png)
+
 TODO: Will explain later
 
 ### Consistency with Transaction

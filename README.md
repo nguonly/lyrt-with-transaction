@@ -41,6 +41,11 @@ public class Compression {
 ```
 ##### Binding new role while transaction is executing
 
+Main thread creates a transaction ensuring that it can run longer than any other threads. `newBinding` thread runs in parallel with main thread. `txAfterBinding` thread runs after the `newBinding` thread but ensure that it is executed in parallel with the main thread. In this scenario, the expected results are:
+- The main thread continously produces the consistent behavior inside a transaction by printing the original behavior of the core `transfer` without affected by the binding thread
+- The `newBinding` thread composes new behaviors to the core `transfer` but will not affect to an already running transaction (main thread)
+- The `txAfterBinding` thread has a transaction that produces the new code of the `Encryption` binding. So the transaction in the main thread and in the `txAfterBinding` thread run simultaneously with produce different results. However, each transaction yields consistent behaviors.
+
 ``` java
 public class Networking{
   public static void main(String... args{

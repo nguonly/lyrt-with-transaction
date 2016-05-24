@@ -4,9 +4,8 @@ LyRT Role Runtime with support of Transaction is an extended work from original 
 - Consistency of adaptation by means of **Transaction**
 
 ### Runtime Architecture for Unanticipated Adaptation
-![Runtime Architecture](./runtime-architecture.png)
 
-TODO: Will explain later
+Please check this [Runtime Architecture](https://github.com/nguonly/lyrt-with-transaction/wiki)
 
 ### Consistency with Transaction
 Inconsistency of adapation arises from the composition or binding of roles to the core object from different thread asynchronously. This problem obviously affects the on-going execution resulting in unexpected system state. To prevent from this problem, a concept of **Transaction** from the object level is proposed to safeguard the changing of behaviors of core objects inside a transaction.

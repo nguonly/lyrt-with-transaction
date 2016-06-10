@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <adaptation>
-    <compartment type="net.runtime.role.actor.Compartment" id="636718812" >
-        <rebind coreId="20132171" roleType="net.runtime.role.snake.Obstacle" >
+    <compartment type="net.runtime.role.actor.Compartment" id="1921595561" >
+        <rebind coreId="793589513" roleType="net.runtime.role.snake.Obstacle" >
             <invoke method="defineObstacle" returnType="void"></invoke>
             <!--&lt;!&ndash;<invoke method="clearAllObstacles" returnType="void"></invoke>&ndash;&gt;-->
         </rebind>

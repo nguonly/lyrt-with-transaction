@@ -1,6 +1,5 @@
 package net.runtime.role.registry;
 
-import net.runtime.role.bytecode.BuddyProxy;
 import net.runtime.role.evolution.ClassReloader;
 import net.runtime.role.orm.ActorTypeEnum;
 

@@ -18,7 +18,7 @@ public class Transaction implements AutoCloseable {
         try {
             long threadId = Thread.currentThread().getId();
             String msg = String.format("[%d] begins TX @ %s", threadId, LocalDateTime.now());
-            System.out.println(msg);
+//            System.out.println(msg);
             RegistryManager.registerTransaction(threadId, this.hashCode());
         }finally {
             RegistryManager.m_lock.unlock();
@@ -35,7 +35,7 @@ public class Transaction implements AutoCloseable {
         RegistryManager.m_lock.lock();
         try {
             long threadId = Thread.currentThread().getId();
-            System.out.format("[%d] ends TX @ %s\n", threadId, LocalDateTime.now());
+//            System.out.format("[%d] ends TX @ %s\n", threadId, LocalDateTime.now());
             //Remove phantom roles
             RegistryManager.delPhantomRoles(this);
             //clear transaction log in current thread

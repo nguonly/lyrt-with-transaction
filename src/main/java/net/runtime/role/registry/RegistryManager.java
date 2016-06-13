@@ -51,6 +51,8 @@ public class RegistryManager implements IEvolution{
      */
     private static boolean m_evolutionFlag = false;
 
+    private static String m_evolutionPath = System.getProperty("user.dir"); //a path containing evolution class files
+
     public static final ReentrantLock m_lock = new ReentrantLock();
 
     public static RegistryManager getInstance(){
@@ -94,6 +96,14 @@ public class RegistryManager implements IEvolution{
 
     public boolean getEvolutionFlag(){
         return m_evolutionFlag;
+    }
+
+    public void setEvolutionPath(String path){
+        m_evolutionPath = path;
+    }
+
+    public String getEvolutionPath(){
+        return m_evolutionPath;
     }
 
     public static void registerTransaction(long threadId, int objId){

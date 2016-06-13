@@ -1,6 +1,7 @@
 package net.runtime.role.registry;
 
 import net.runtime.role.evolution.ClassReloader;
+import net.runtime.role.evolution.JarClassLoader;
 import net.runtime.role.orm.ActorTypeEnum;
 
 import java.lang.reflect.Constructor;
@@ -13,7 +14,8 @@ public class ActorInitialization {
     public static Object newObject(ActorTypeEnum actorType, String ct, Class<?>[] types, Object[] params) {
         try {
             //Class<?> cls = getClassLoader(forEvolution, ct);
-            Class<?> cls = Class.forName(ct);
+//            Class<?> cls = Class.forName(ct); // original code
+            Class<?> cls = new JarClassLoader().loadClass(ct);
             return newObject(actorType, cls, types, params);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -57,21 +59,24 @@ public class ActorInitialization {
         T retObj = null;
         try {
             if (types == null || params == null) {
-                if (forEvolution) { //load with class reloader
-                    Class<?> cls = new ClassReloader().loadClass(ct);
-                    retObj = (T) cls.newInstance();
-                } else { // load with normal class loader
-                    retObj = ct.newInstance();
-                }
+//                if (forEvolution) { //load with class reloader
+//                    Class<?> cls = new ClassReloader().loadClass(ct);
+//                    retObj = (T) cls.newInstance();
+//                } else { // load with normal class loader
+//                    retObj = ct.newInstance();
+//                }
+                retObj = ct.newInstance();
             } else {
-                if (forEvolution) {
-                    Class<?> cls = new ClassReloader().loadClass(ct);
-                    Constructor<?> constructor = cls.getConstructor(types);
-                    retObj = (T) constructor.newInstance(params);
-                } else {
-                    Constructor<T> constructor = ct.getConstructor(types);
-                    retObj = constructor.newInstance(params);
-                }
+//                if (forEvolution) {
+//                    Class<?> cls = new ClassReloader().loadClass(ct);
+//                    Constructor<?> constructor = cls.getConstructor(types);
+//                    retObj = (T) constructor.newInstance(params);
+//                } else {
+//                    Constructor<T> constructor = ct.getConstructor(types);
+//                    retObj = constructor.newInstance(params);
+//                }
+                Constructor<T> constructor = ct.getConstructor(types);
+                retObj = constructor.newInstance(params);
             }
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();

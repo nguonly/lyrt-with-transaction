@@ -186,4 +186,14 @@ public class Role {
     public <T> T proceed(){
         return null;
     }
+
+    /* Martin's work */
+    public byte[] getStateInformation() {
+        return null;
+    }
+
+    public boolean setStateInformation(final byte[] stateInformation) {
+        return false;
+    }
+    /* End of Martin's work */
 }
